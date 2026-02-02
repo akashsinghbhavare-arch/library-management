@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APSZ Library - Book Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <img src="imgs/logo.png" alt="APSZ Logo" id="logo">
+                <h1>APSZ Corporation</h1>
+            </div>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkBtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link">Home</a></li>
+                <li><a href="admin.html" class="nav-link">Admin</a></li>
+                <li><a href="#" class="nav-link">E-Books</a></li>
+                <li><a href="#" class="nav-link">Manga</a></li>
+                <li><a href="signin.html" class="nav-link nav-link-btn">Log In</a></li>
+            </ul>
+        </div>
+    </nav>
+   
+   <!-- HERO SECTION -->
+   <section id="hero">
+       <div class="hero-content">
+           <h3>Welcome to</h3>
+           <h2>APSZ Library Store</h2>
+           <p>Discover the Most Knowledgeable Books</p>
+           <p class="hero-subtitle">Buy books. Read books. Share knowledge.</p>
+       </div>
+   </section>
+
+   <!-- PRODUCT CATALOG SECTION -->
+   <section class="products-section">
+       <div class="section-header">
+           <h2>Featured Books</h2>
+           <p>Explore our extensive collection of bestsellers</p>
+       </div>
+       
+       <div class="pro-container">
+           <div class="product-card">
+               <div class="product-image">
+                   <img src="imgs/discover.jpg" alt="The Discovery Of India">
+               </div>
+               <div class="product-info">
+                   <p class="author">Jawaharlal Nehru</p>
+                   <h4 class="book-title">The Discovery Of India</h4>
+                   <div class="product-footer">
+                       <span class="price">₹449</span>
+                       <a href="#" class="add-to-cart">
+                           <i class="fas fa-shopping-cart"></i>
+                       </a>
+                   </div>
+               </div>
+           </div>
+
+           <div class="product-card">
+               <div class="product-image">
+                   <img src="imgs/bhagvad.jpg" alt="Bhagvad Gita">
+               </div>
+               <div class="product-info">
+                   <p class="author">Ved Vyasa</p>
+                   <h4 class="book-title">Bhagvad Gita</h4>
+                   <div class="product-footer">
+                       <span class="price">₹599</span>
+                       <a href="#" class="add-to-cart">
+                           <i class="fas fa-shopping-cart"></i>
+                       </a>
+                   </div>
+               </div>
+           </div>
+
+           <div class="product-card">
+               <div class="product-image">
+                   <img src="imgs/south.jpg" alt="The History of South India">
+               </div>
+               <div class="product-info">
+                   <p class="author">K. A. Nilakanta Satri</p>
+                   <h4 class="book-title">The History of South India</h4>
+                   <div class="product-footer">
+                       <span class="price">₹299</span>
+                       <a href="#" class="add-to-cart">
+                           <i class="fas fa-shopping-cart"></i>
+                       </a>
+                   </div>
+               </div>
+           </div>
+
+           <div class="product-card">
+               <div class="product-image">
+                   <img src="imgs/isfs.jpg" alt="Indias Struggle for Independence">
+               </div>
+               <div class="product-info">
+                   <p class="author">Bipin Chandra</p>
+                   <h4 class="book-title">India's Struggle for Independence</h4>
+                   <div class="product-footer">
+                       <span class="price">₹299</span>
+                       <a href="#" class="add-to-cart">
+                           <i class="fas fa-shopping-cart"></i>
+                       </a>
+                   </div>
+               </div>
+           </div>
+
+           <div class="product-card">
+               <div class="product-image">
+                   <img src="imgs/midnight.jpg" alt="Freedom At Midnight">
+               </div>
+               <div class="product-info">
+                   <p class="author">Larry Collins & Dominique Lapierre</p>
+                   <h4 class="book-title">Freedom At Midnight</h4>
+                   <div class="product-footer">
+                       <span class="price">₹199</span>
+                       <a href="#" class="add-to-cart">
+                           <i class="fas fa-shopping-cart"></i>
+                       </a>
+                   </div>
+               </div>
+           </div>
+
+           <div class="product-card">
+               <div class="product-image">
+                   <img src="imgs/evil.jpg" alt="Beyond Good and Evil">
+               </div>
+               <div class="product-info">
+                   <p class="author">Friedrich Nietzsche</p>
+                   <h4 class="book-title">Beyond Good and Evil</h4>
+                   <div class="product-footer">
+                       <span class="price">₹249</span>
+                       <a href="#" class="add-to-cart">
+                           <i class="fas fa-shopping-cart"></i>
+                       </a>
+                   </div>
+               </div>
+           </div>
+
+           <div class="product-card">
+               <div class="product-image">
+                   <img src="imgs/meaning.jpg" alt="Man Search For Meaning">
+               </div>
+               <div class="product-info">
+                   <p class="author">Viktor Frankl</p>
+                   <h4 class="book-title">Man's Search For Meaning</h4>
+                   <div class="product-footer">
+                       <span class="price">₹199</span>
+                       <a href="#" class="add-to-cart">
+                           <i class="fas fa-shopping-cart"></i>
+                       </a>
+                   </div>
+               </div>
+           </div>
+
+           <div class="product-card">
+               <div class="product-image">
+                   <img src="imgs/stranger.jpg" alt="The Stranger">
+               </div>
+               <div class="product-info">
+                   <p class="author">Albert Camus</p>
+                   <h4 class="book-title">The Stranger</h4>
+                   <div class="product-footer">
+                       <span class="price">₹299</span>
+                       <a href="#" class="add-to-cart">
+                           <i class="fas fa-shopping-cart"></i>
+                       </a>
+                   </div>
+               </div>
+           </div>
+
+           <div class="product-card">
+               <div class="product-image">
+                   <img src="imgs/subash.png" alt="The Z Factor">
+               </div>
+               <div class="product-info">
+                   <p class="author">Subash Chandra Bose</p>
+                   <h4 class="book-title">The Z Factor</h4>
+                   <div class="product-footer">
+                       <span class="price">₹499</span>
+                       <a href="#" class="add-to-cart">
+                           <i class="fas fa-shopping-cart"></i>
+                       </a>
+                   </div>
+               </div>
+           </div>
+
+           <div class="product-card">
+               <div class="product-image">
+                   <img src="imgs/yuvraj.jpg" alt="The Test of My Life">
+               </div>
+               <div class="product-info">
+                   <p class="author">Yuvraj Singh</p>
+                   <h4 class="book-title">The Test of My Life</h4>
+                   <div class="product-footer">
+                       <span class="price">₹249</span>
+                       <a href="#" class="add-to-cart">
+                           <i class="fas fa-shopping-cart"></i>
+                       </a>
+                   </div>
+               </div>
+           </div>
+
+           <div class="product-card">
+               <div class="product-image">
+                   <img src="imgs/anbedker.jpg" alt="Waiting For A Visa">
+               </div>
+               <div class="product-info">
+                   <p class="author">B. R. Ambedkar</p>
+                   <h4 class="book-title">Waiting For A Visa</h4>
+                   <div class="product-footer">
+                       <span class="price">₹699</span>
+                       <a href="#" class="add-to-cart">
+                           <i class="fas fa-shopping-cart"></i>
+                       </a>
+                   </div>
+               </div>
+           </div>
+
+           <div class="product-card">
+               <div class="product-image">
+                   <img src="imgs/fire.jpg" alt="The Wings Of Fire">
+               </div>
+               <div class="product-info">
+                   <p class="author">A. P. J. Abdul Kalam</p>
+                   <h4 class="book-title">The Wings Of Fire</h4>
+                   <div class="product-footer">
+                       <span class="price">₹549</span>
+                       <a href="#" class="add-to-cart">
+                           <i class="fas fa-shopping-cart"></i>
+                       </a>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </section>
+   <!-- PROMOTIONAL BANNERS -->
+   <section class="banners-section">
+       <div class="banner banner-1">
+           <div class="banner-content">
+               <h3>Featured Collection</h3>
+               <h2>Best Sellers</h2>
+               <p>Explore our most popular books and start reading today</p>
+               <a href="#" class="banner-btn">Shop Now</a>
+           </div>
+       </div>
+
+       <div class="banner banner-2">
+           <div class="banner-content">
+               <h3>Coming Soon</h3>
+               <h2>New Arrivals</h2>
+               <p>Discover the latest releases from your favorite authors</p>
+               <a href="#" class="banner-btn">Notify Me</a>
+           </div>
+       </div>
+   </section>
+
+   <!-- TESTIMONIAL BANNER -->
+   <section class="testimonial-banner">
+       <div class="testimonial-content">
+           <h2>"A book is a gift you can open again and again"</h2>
+           <p>Join thousands of readers discovering their next favorite book</p>
+       </div>
+   </section>
+
+   <!-- FOOTER -->
+   <footer>
+       <div class="footer-container">
+           <div class="footer-col">
+               <div class="footer-logo">
+                   <img src="imgs/logo.png" alt="APSZ Logo">
+               </div>
+               <h4>Contact Us</h4>
+               <p><strong>Address:</strong> Karnataka Gadag, Betegari</p>
+               <p><strong>Phone:</strong> +91 16161 25252</p>
+               <p><strong>Hours:</strong> 10:00 AM - 05:00 PM (Mon - Sat)</p>
+           </div>
+
+           <div class="footer-col">
+               <h4>About</h4>
+               <a href="#">About Us</a>
+               <a href="#">Delivery Information</a>
+               <a href="#">Privacy Policy</a>
+               <a href="#">Terms and Conditions</a>
+               <a href="#">Contact Us</a>
+           </div>
+
+           <div class="footer-col">
+               <h4>My Account</h4>
+               <a href="signin.html">Sign In</a>
+               <a href="#">View Cart</a>
+               <a href="#">My Wish List</a>
+               <a href="#">Track Order</a>
+               <a href="#">Help</a>
+           </div>
+
+           <div class="footer-col">
+               <h4>Download App</h4>
+               <p>Get exclusive deals and faster checkout</p>
+               <div class="app-links">
+                   <a href="#">
+                       <i class="fab fa-apple"></i> App Store
+                   </a>
+                   <a href="#">
+                       <i class="fab fa-google-play"></i> Google Play
+                   </a>
+               </div>
+           </div>
+       </div>
+
+       <div class="footer-bottom">
+           <p>&copy; 2024 APSZ Corporation. All rights reserved.</p>
+       </div>
+   </footer>
+</body>
+</html>

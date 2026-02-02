@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APSZ Library - Sign In / Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="signin.css">
+</head>
+
+<body>
+    <!-- Login Container -->
+    <div class="auth-container" id="con" hidden>
+        <div class="auth-card">
+            <div class="auth-header">
+                <h2>Welcome Back</h2>
+                <p>Sign in to your APSZ Library account</p>
+            </div>
+            <form class="auth-form" onsubmit="event.preventDefault(); handleSignin();">
+                <div class="form-group">
+                    <label for="signin-email">Email Address</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" name="email" id="signin-email" placeholder="Enter your email" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="signin-password">Password</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" name="password" id="signin-password" placeholder="Enter your password" required>
+                    </div>
+                </div>
+
+                <a href="#" class="forgot-password">Forgot password?</a>
+                
+                <button type="submit" class="btn-submit">Sign In</button>
+
+                <div class="auth-footer">
+                    <p>Don't have an account? <span id="toggle-signup" class="toggle-link" onclick="signup()">Sign Up</span></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sign Up Container -->
+    <div class="auth-container" id="con1">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h2>Create Account</h2>
+                <p>Join APSZ Library today</p>
+            </div>
+            <form class="auth-form" onsubmit="event.preventDefault(); handleSignup();">
+                <div class="form-group">
+                    <label for="signup-username">Username</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-user"></i>
+                        <input type="text" name="username" id="signup-username" placeholder="Create a username" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="signup-email">Email</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" name="email" id="signup-email" placeholder="Enter your email" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" name="password" id="signup-password" placeholder="Create a password" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="signup-confirm">Confirm Password</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" name="confirm-password" id="signup-confirm" placeholder="Confirm your password" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">Create Account</button>
+
+                <div class="auth-footer">
+                    <p>Already have an account? <span id="toggle-login" class="toggle-link" onclick="signing()">Sign In</span></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="auth.js"></script>
+    <script>
+        // Toggle between signin and signup forms
+        function signup() {
+            document.getElementById('con').setAttribute('hidden', '');
+            document.getElementById('con1').removeAttribute('hidden');
+        }
+
+        function signing() {
+            document.getElementById('con1').setAttribute('hidden', '');
+            document.getElementById('con').removeAttribute('hidden');
+        }
+
+        // Show signin form by default
+        window.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('con1').setAttribute('hidden', '');
+            document.getElementById('con').removeAttribute('hidden');
+        });
+    </script>

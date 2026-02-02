@@ -1,0 +1,278 @@
+/* ============ GLOBAL STYLES ============ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ============ AUTH CONTAINER ============ */
+
+.auth-container {
+    width: 100%;
+    max-width: 450px;
+    animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.auth-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+}
+
+/* ============ AUTH HEADER ============ */
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.auth-header h2 {
+    font-size: 1.8rem;
+    color: #1a1a2e;
+    margin-bottom: 0.5rem;
+}
+
+.auth-header p {
+    color: #666;
+    font-size: 1rem;
+}
+
+/* ============ AUTH FORM ============ */
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #1a1a2e;
+    font-size: 0.95rem;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+    background-color: #f8f9fa;
+}
+
+.input-wrapper:focus-within {
+    border-color: #667eea;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.input-wrapper i {
+    color: #667eea;
+    margin-right: 0.75rem;
+    font-size: 1rem;
+}
+
+.input-wrapper input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    color: #1a1a2e;
+    font-size: 1rem;
+}
+
+.input-wrapper input::placeholder {
+    color: #999;
+}
+
+/* ============ FORGOT PASSWORD ============ */
+
+.forgot-password {
+    align-self: flex-end;
+    color: #667eea;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-bottom: 0.5rem;
+}
+
+.forgot-password:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+/* ============ SUBMIT BUTTON ============ */
+
+.btn-submit {
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+/* ============ AUTH FOOTER ============ */
+
+.auth-footer {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.auth-footer p {
+    color: #666;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.toggle-link {
+    color: #667eea;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toggle-link:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+/* ============ RESPONSIVE DESIGN ============ */
+
+@media (max-width: 480px) {
+    .auth-card {
+        padding: 1.5rem;
+    }
+
+    .auth-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .auth-form {
+        gap: 1.2rem;
+    }
+
+    .btn-submit {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.95rem;
+    }
+}
+
+.flexUl {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flexUl a {
+    text-decoration: none;
+}
+
+.flexUl li {
+    list-style: none;
+}
+
+.flexUl li i {
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-brands {
+    margin-top: 1rem;
+    cursor: pointer;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 50%;
+}
+
+.fa-google {
+    background-color: orangered;
+}
+
+.fa-twitter {
+    background-color: rgb(43, 71, 228);
+}
+
+.fa-facebook-f {
+    background-color: darkblue;
+}
+
+
+/* Utility Classes */
+.t-center {
+    text-align: center;
+}
+
+.btn {
+    border: none;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    padding: 0.7rem 0.8rem;
+    background: linear-gradient(to right, #8d68c5, #e34494);
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    color: #fff;
+}
+
+#signUp {
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#signUp:hover {
+    color: #8d68c5;
+}

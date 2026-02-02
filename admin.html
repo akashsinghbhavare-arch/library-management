@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - APSZ Library</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <!-- Auth Check -->
+    <script src="auth.js"></script>
+    <script>
+      checkAdmin();
+    </script>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <img src="imgs/logo.png" alt="APSZ Logo" id="logo">
+                <h1>APSZ Admin Panel</h1>
+            </div>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkBtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="admin.html" class="nav-link active">Admin</a></li>
+                <li><a href="#" class="nav-link">Reports</a></li>
+                <li><a href="#" class="nav-link nav-link-btn" onclick="handleLogout()">Logout</a></li>
+            </ul>
+            <div class="navbar-user" style="margin-right: 20px;">
+                <span id="user-name" style="font-weight: 500; margin-right: 5px;"></span>
+                <span id="user-role" style="font-size: 0.9em; color: #666;"></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Dashboard Stats -->
+        <section class="stats-section">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="stat-content">
+                    <p class="stat-label">Total Books</p>
+                    <h2 class="stat-number">1,200</h2>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-content">
+                    <p class="stat-label">Total Members</p>
+                    <h2 class="stat-number">320</h2>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-share-alt"></i>
+                </div>
+                <div class="stat-content">
+                    <p class="stat-label">Books Issued</p>
+                    <h2 class="stat-number">145</h2>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="stat-content">
+                    <p class="stat-label">Overdue Books</p>
+                    <h2 class="stat-number">12</h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- Add Book Section -->
+        <section class="card">
+            <div class="card-header">
+                <h2>Add New Book</h2>
+                <p>Enter book details to add to the library</p>
+            </div>
+            <form class="form-grid">
+                <input type="text" placeholder="Book Title" required>
+                <input type="text" placeholder="Author Name" required>
+                <input type="text" placeholder="Category" required>
+                <input type="text" placeholder="ISBN" required>
+                <button type="submit" class="btn-primary">Add Book</button>
+            </form>
+        </section>
+
+        <!-- Add Member Section -->
+        <section class="card">
+            <div class="card-header">
+                <h2>Add New Member</h2>
+                <p>Register a new member to the library</p>
+            </div>
+            <form class="form-grid">
+                <input type="text" placeholder="Member Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="tel" placeholder="Phone Number" required>
+                <input type="text" placeholder="Member ID" required>
+                <button type="submit" class="btn-primary">Add Member</button>
+            </form>
+        </section>
+
+        <!-- Issue Book Section -->
+        <section class="card">
+            <div class="card-header">
+                <h2>Issue Book</h2>
+                <p>Issue a book to a member</p>
+            </div>
+            <form class="form-grid">
+                <select required>
+                    <option value="">Select Book</option>
+                    <option>Atomic Habits - James Clear</option>
+                    <option>Clean Code - Robert C. Martin</option>
+                    <option>The Discovery Of India - Jawaharlal Nehru</option>
+                </select>
+                <select required>
+                    <option value="">Select Member</option>
+                    <option>Rahul Sharma</option>
+                    <option>Anita Verma</option>
+                    <option>Priya Singh</option>
+                </select>
+                <input type="date" required>
+                <input type="date" placeholder="Due Date" required>
+                <button type="submit" class="btn-primary">Issue Book</button>
+            </form>
+        </section>
+
+        <!-- Return Book Section -->
+        <section class="card">
+            <div class="card-header">
+                <h2>Return Book</h2>
+                <p>Process book return from member</p>
+            </div>
+            <form class="form-grid">
+                <select required>
+                    <option value="">Select Issued Book</option>
+                    <option>Clean Code - Robert C. Martin</option>
+                    <option>Atomic Habits - James Clear</option>
+                </select>
+                <input type="date" placeholder="Return Date" required>
+                <button type="submit" class="btn-primary">Process Return</button>
+            </form>
+        </section>
+
+        <!-- Recent Books Table -->
+        <section class="card">
+            <div class="card-header">
+                <h2>Recent Books Added</h2>
+            </div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Book Title</th>
+                            <th>Author</th>
+                            <th>Category</th>
+                            <th>ISBN</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Atomic Habits</td>
+                            <td>James Clear</td>
+                            <td>Self Help</td>
+                            <td>978-0735211292</td>
+                            <td><span class="badge available">Available</span></td>
+                            <td><button class="btn-small btn-delete">Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td>Clean Code</td>
+                            <td>Robert C. Martin</td>
+                            <td>Programming</td>
+                            <td>978-0132350884</td>
+                            <td><span class="badge issued">Issued</span></td>
+                            <td><button class="btn-small btn-delete">Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td>The Discovery Of India</td>
+                            <td>Jawaharlal Nehru</td>
+                            <td>History</td>
+                            <td>978-0141037394</td>
+                            <td><span class="badge available">Available</span></td>
+                            <td><button class="btn-small btn-delete">Delete</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

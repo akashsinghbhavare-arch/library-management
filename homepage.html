@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Library Management System</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+
+<!-- Auth Check -->
+<script src="auth.js"></script>
+<script>
+  checkAuth();
+</script>
+
+<!-- HEADER -->
+<header>
+  <div class="header-container">
+    <div class="header-brand">
+      <img src="imgs/logo.png" alt="Logo" class="header-logo">
+      <h1>📚 Smart Library</h1>
+    </div>
+    <nav class="header-nav">
+      <a href="index.html">Home</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#books">Books</a>
+      <a href="#members">Members</a>
+      <a href="#" onclick="handleLogout()">Logout</a>
+    </nav>
+    <div class="header-user">
+      <span id="user-name" style="font-weight: 500; margin-right: 5px;"></span>
+      <span id="user-role" style="font-size: 0.9em; color: #666;"></span>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- Dashboard Stats -->
+  <section class="stats">
+    <div class="stat-card">
+      <div class="stat-icon">
+        <i class="fas fa-book"></i>
+      </div>
+      <div class="stat-info">
+        <p>Total Books</p>
+        <h2>1200</h2>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">
+        <i class="fas fa-users"></i>
+      </div>
+      <div class="stat-info">
+        <p>Total Members</p>
+        <h2>320</h2>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">
+        <i class="fas fa-share-alt"></i>
+      </div>
+      <div class="stat-info">
+        <p>Books Issued</p>
+        <h2>145</h2>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">
+        <i class="fas fa-clock"></i>
+      </div>
+      <div class="stat-info">
+        <p>Overdue Books</p>
+        <h2>12</h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- Add Book Section -->
+  <section class="card" id="books">
+    <h2>Add New Book</h2>
+    <form id="bookForm" class="form-grid">
+      <input type="text" placeholder="Book Title" required>
+      <input type="text" placeholder="Author" required>
+      <input type="text" placeholder="Category" required>
+      <input type="text" placeholder="ISBN" required>
+      <button type="submit" class="btn">Add Book</button>
+    </form>
+  </section>
+
+  <!-- Book List -->
+  <section class="card">
+    <h2>Book List</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Category</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Atomic Habits</td><td>James Clear</td><td>Self Help</td><td><span class="badge available">Available</span></td></tr>
+        <tr><td>Clean Code</td><td>Robert C. Martin</td><td>Programming</td><td><span class="badge issued">Issued</span></td></tr>
+        <tr><td>The Discovery Of India</td><td>Jawaharlal Nehru</td><td>History</td><td><span class="badge available">Available</span></td></tr>
+        <tr><td>Bhagvad Gita</td><td>Ved Vyasa</td><td>Philosophy</td><td><span class="badge available">Available</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Add Member -->
+  <section class="card" id="members">
+    <h2>Add New Member</h2>
+    <form class="form-grid">
+      <input type="text" placeholder="Member Name" required>
+      <input type="email" placeholder="Email" required>
+      <input type="text" placeholder="Phone" required>
+      <input type="text" placeholder="Membership ID" required>
+      <button class="btn">Add Member</button>
+    </form>
+  </section>
+
+  <!-- Issue Book -->
+  <section class="card">
+    <h2>Issue Book</h2>
+    <form class="form-grid">
+      <select required>
+        <option>Select Book</option>
+        <option>Atomic Habits</option>
+        <option>Clean Code</option>
+      </select>
+      <select required>
+        <option>Select Member</option>
+        <option>Rahul Sharma</option>
+        <option>Anita Verma</option>
+      </select>
+      <input type="date" required>
+      <input type="date" placeholder="Due Date" required>
+      <button class="btn">Issue Book</button>
+    </form>
+  </section>
+
+  <!-- Return Book -->
+  <section class="card">
+    <h2>Return Book</h2>
+    <form class="form-grid">
+      <select required>
+        <option>Select Issued Book</option>
+        <option>Clean Code</option>
+      </select>
+      <input type="date" required>
+      <button class="btn">Return Book</button>
+    </form>
+  </section>
+
+  <!-- Members List -->
+  <section class="card">
+    <h2>Active Members</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Rahul Sharma</td><td>rahul@email.com</td><td>9876543210</td><td><span class="badge active">Active</span></td></tr>
+        <tr><td>Anita Verma</td><td>anita@email.com</td><td>8765432109</td><td><span class="badge active">Active</span></td></tr>
+        <tr><td>Priya Singh</td><td>priya@email.com</td><td>7654321098</td><td><span class="badge active">Active</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2024 Smart Library Management System. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
+
+    <div class="stat-card"><p>Overdue Books</p><h2>12</h2></div>
+  </section>
+
+  <!-- Add Book -->
+  <section class="card">
+    <h2>Add New Book</h2>
+    <form id="bookForm">
+      <input type="text" placeholder="Book Title" required>
+      <input type="text" placeholder="Author" required>
+      <input type="text" placeholder="Category" required>
+      <input type="text" placeholder="ISBN" required>
+      <button type="submit">Add Book</button>
+    </form>
+  </section>
+
+  <!-- Book List -->
+  <section class="card">
+    <h2>Book List</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Category</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Atomic Habits</td><td>James Clear</td><td>Self Help</td><td>Available</td></tr>
+        <tr><td>Clean Code</td><td>Robert C. Martin</td><td>Programming</td><td>Issued</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Add Member -->
+  <section class="card">
+    <h2>Add Member</h2>
+    <form>
+      <input type="text" placeholder="Member Name" required>
+      <input type="email" placeholder="Email" required>
+      <input type="text" placeholder="Phone" required>
+      <button>Add Member</button>
+    </form>
+  </section>
+
+  <!-- Issue Book -->
+  <section class="card">
+    <h2>Issue Book</h2>
+    <form>
+      <select required>
+        <option>Select Book</option>
+        <option>Atomic Habits</option>
+        <option>Clean Code</option>
+      </select>
+      <select required>
+        <option>Select Member</option>
+        <option>Rahul Sharma</option>
+        <option>Anita Verma</option>
+      </select>
+      <input type="date" required>
+      <button>Issue Book</button>
+    </form>
+  </section>
+
+  <!-- Return Book -->
+  <section class="card">
+    <h2>Return Book</h2>
+    <form>
+      <select required>
+        <option>Select Issued Book</option>
+        <option>Clean Code</option>
+      </select>
+      <button>Return Book</button>
+    </form>
+  </section>
+
+</div>
+
+<footer>
+  <p>© 2026 Smart Library Management System</p>
+</footer>
+
+</body>
+</html>
