@@ -10,6 +10,9 @@
 </head>
 
 <body>
+    <!-- Auth Scripts -->
+    <script src="auth.js"></script>
+
     <!-- NAVBAR -->
     <nav class="navbar">
         <div class="navbar-container">
@@ -22,14 +25,54 @@
                 <i class="fas fa-bars"></i>
             </label>
             <ul class="nav-menu">
-                <li><a href="#" class="nav-link">Home</a></li>
-                <li><a href="admin.html" class="nav-link">Admin</a></li>
-                <li><a href="#" class="nav-link">E-Books</a></li>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li id="admin-link" style="display: none;"><a href="admin.html" class="nav-link">Admin</a></li>
+                <li><a href="c-books.html" class="nav-link">C-Books</a></li>
                 <li><a href="#" class="nav-link">Manga</a></li>
-                <li><a href="signin.html" class="nav-link nav-link-btn">Log In</a></li>
+                <li id="auth-link"><a href="signin.html" class="nav-link nav-link-btn">Log In</a></li>
+                <li id="logout-link" style="display: none;"><a href="#" class="nav-link nav-link-btn" onclick="handleLogout()">Logout</a></li>
             </ul>
+            <div class="navbar-user" id="user-info" style="margin-right: 20px; display: none;">
+                <span id="user-name" style="font-weight: 500; margin-right: 5px;"></span>
+                <span id="user-role" style="font-size: 0.9em; color: #666;"></span>
+            </div>
         </div>
     </nav>
+
+    <script>
+        // Update navbar based on authentication status
+        function updateNavbar() {
+            const token = localStorage.getItem('token');
+            const user = localStorage.getItem('user');
+            
+            if (token && user) {
+                const userData = JSON.parse(user);
+                
+                // Hide login, show logout
+                document.getElementById('auth-link').style.display = 'none';
+                document.getElementById('logout-link').style.display = 'block';
+                
+                // Show user info
+                document.getElementById('user-info').style.display = 'block';
+                document.getElementById('user-name').textContent = userData.username;
+                document.getElementById('user-role').textContent = `(${userData.role.toUpperCase()})`;
+                
+                // Show admin link only for admins
+                if (userData.role === 'admin') {
+                    document.getElementById('admin-link').style.display = 'block';
+                }
+            } else {
+                // Show login, hide logout and user info
+                document.getElementById('auth-link').style.display = 'block';
+                document.getElementById('logout-link').style.display = 'none';
+                document.getElementById('user-info').style.display = 'none';
+                document.getElementById('admin-link').style.display = 'none';
+            }
+        }
+        
+        // Update navbar on page load
+        updateNavbar();
+    </script>
    
    <!-- HERO SECTION -->
    <section id="hero">

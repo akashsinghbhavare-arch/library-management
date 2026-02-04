@@ -81,7 +81,7 @@ async function handleSignup() {
       if (result.user.role === 'admin') {
         window.location.href = 'admin.html';
       } else {
-        window.location.href = 'homepage.html';
+        window.location.href = 'index.html';
       }
     }, 500);
   } else {
@@ -120,7 +120,7 @@ async function handleSignin() {
       if (result.user.role === 'admin') {
         window.location.href = 'admin.html';
       } else {
-        window.location.href = 'homepage.html';
+        window.location.href = 'index.html';
       }
     }, 500);
   } else {
@@ -160,7 +160,7 @@ function checkAdmin() {
   const user = checkAuth();
 
   if (!user || user.role !== 'admin') {
-    window.location.href = 'homepage.html';
+    window.location.href = 'index.html';
     return null;
   }
 
@@ -187,6 +187,31 @@ function displayUserInfo() {
     if (userRoleElement) {
       userRoleElement.textContent = `(${user.role.toUpperCase()})`;
     }
+  }
+}
+
+// Admin Login Handler
+async function handleAdminLogin() {
+  const username = document.getElementById('admin-username').value;
+  const password = document.getElementById('admin-password').value;
+
+  if (!username || !password) {
+    alert('Please fill all fields');
+    return;
+  }
+
+  const result = await makeRequest('/auth/admin-login', 'POST', {
+    username: username,
+    password: password
+  });
+
+  if (result.success) {
+    localStorage.setItem('token', result.token);
+    localStorage.setItem('user', JSON.stringify(result.user));
+    alert('Admin login successful!');
+    window.location.href = 'admin.html';
+  } else {
+    alert('Error: ' + result.message);
   }
 }
 

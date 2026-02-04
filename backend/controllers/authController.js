@@ -264,9 +264,93 @@ const logout = (req, res) => {
   }
 };
 
+// Admin Login Controller
+const adminLogin = (req, res) => {
+  try {
+    const { username, password } = req.body;
+
+    // Validation
+    if (!username || !password) {
+      return res.status(400).json({
+        success: false,
+        message: 'Please provide username and password'
+      });
+    }
+
+    // Find user by username
+    getUserByUsername(username, (err, user) => {
+      if (err) {
+        return res.status(500).json({
+          success: false,
+          message: 'Database error'
+        });
+      }
+
+      if (!user) {
+        return res.status(401).json({
+          success: false,
+          message: 'Invalid username or password'
+        });
+      }
+
+      // Check if user is admin
+      if (user.role !== 'admin') {
+        return res.status(403).json({
+          success: false,
+          message: 'Access denied: Admin credentials required'
+        });
+      }
+
+      // Check password
+      const isPasswordValid = bcrypt.compareSync(password, user.password);
+
+      if (!isPasswordValid) {
+        return res.status(401).json({
+          success: false,
+          message: 'Invalid username or password'
+        });
+      }
+
+      // Generate JWT token
+      const token = jwt.sign(
+        {
+          id: user.id,
+          username: user.username,
+          email: user.email,
+          role: user.role
+        },
+        JWT_SECRET,
+        { expiresIn: '7d' }
+      );
+
+      // Log activity
+      logActivity(user.id, 'Admin login', () => {});
+
+      res.json({
+        success: true,
+        message: 'Admin login successful',
+        token: token,
+        user: {
+          id: user.id,
+          username: user.username,
+          email: user.email,
+          role: user.role
+        }
+      });
+    });
+  } catch (error) {
+    console.error('Admin login error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Server error during admin login'
+    });
+  }
+};
+
 module.exports = {
   signup,
   signin,
+  adminLogin,
   getProfile,
   logout
 };

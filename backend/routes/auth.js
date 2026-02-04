@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
-const { signup, signin, getProfile, logout } = require('../controllers/authController');
+const { signup, signin, adminLogin, getProfile, logout } = require('../controllers/authController');
 const { authMiddleware } = require('../middleware/auth');
 
 // Signup route
@@ -10,6 +10,9 @@ router.post('/signup', signup);
 
 // Signin route
 router.post('/signin', signin);
+
+// Admin login route (no auth required)
+router.post('/admin-login', adminLogin);
 
 // Get profile route (protected)
 router.get('/profile', authMiddleware, getProfile);
